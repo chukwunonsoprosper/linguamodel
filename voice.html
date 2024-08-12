@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Liguamura bot</title>
+    <link rel="stylesheet" href="index.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+  </head>
+
+  <body>
+    <div class="getstarted">
+      <div class="theheadingcontact">
+        <div class="fside">
+          <span>Linguamura Bot</span>
+        </div>
+
+        <div class="sside">
+          <span class="material-symbols-outlined"> refresh </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="themanbody">
+      <div class="linkside">
+        <div class="thecontent">
+          <span>Conversation type</span>
+        </div>
+
+        <div class="theoptions">
+          <div class="chatwithtext">
+            <span class="material-symbols-outlined"> chat </span>
+            <a href="index.html">Text based</a>
+          </div>
+
+          <div class="chatwithtext">
+            <span class="material-symbols-outlined"> graphic_eq </span>
+            <a href="">Voice based</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="displayside">
+        <div class="thechatcontainer">
+          <div class="themic">
+            <span id="start-btn" class="material-symbols-outlined">mic</span>
+
+            <div class="themm">
+              <small id="thelistening">Hold to speak, release to send</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script type="importmap">
+        {
+          "imports": {
+            "@google/generative-ai": "https://esm.run/@google/generative-ai"
+          }
+        }
+      </script>
+            <script type="module" src="voice.js"></script>
+    </div>
+  </body>
+</html>

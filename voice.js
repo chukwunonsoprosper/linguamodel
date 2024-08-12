@@ -13,58 +13,68 @@ const model = genAI.getGenerativeModel({
 });
 
 
-// async function run() {
-//   const prompt = "what is your name"
-
-//   const result = await model.generateContent(prompt);
-//   const response = await result.response;
-//   const text = response.text();
-//   console.log(text);
-// }
-
-// run();
-
-let bot = document.getElementById('initBot');
-bot.addEventListener('click', () => {
-  const p = document.getElementById('linguamura').value;
-  document.getElementById('thechatcontainer');
-  try {
-    if (p == '') throw 'an error has occur'
-
-    function formatWord(x) {
-      return x
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#039')
-    }
-
-    let validatedWord = formatWord(p);
-    let theUserChat = `<div class="theuser"><span>User</span><span>${validatedWord}</span></div>`
-    document.getElementById('chatpanel').innerHTML += theUserChat;
-
-
-
-    async function run() {
-  const prompt = validatedWord
+async function run() {
+  const prompt = localStorage.getItem('speech') || 'hey'
 
   const result = await model.generateContent(prompt);
   const response = await result.response;
   const text = response.text();
-  let botRes = `<div class="model">
-            <span>Model</span>
-            <span id="mod">${text}</span>
-          </div>`;
-          
-        document.getElementById('chatpanel').innerHTML += botRes
-        
+  let speakModel = new SpeechSynthesisUtterance(text);
+  speechSynthesis.speak(speakModel)
 }
 
-run();
 
-  } catch (error) {
-    console.log(error)
-  }
-})
+  if (!('webkitSpeechRecognition' in window)) {
+            alert('Your browser does not support the Web Speech API');
+          } else {
+
+            const recognition = new webkitSpeechRecognition();
+            recognition.continuous = true;
+            recognition.interimResults = true;
+            recognition.lang = 'en-US';
+
+            document.getElementById('start-btn').addEventListener('touchstart', () => {
+              recognition.start();
+              document.getElementById('thelistening').innerHTML = 'listening'
+            });
 
 
+            document.getElementById('start-btn').addEventListener('touchend', () => {
+              recognition.stop();
+              setTimeout(run, 1000)
+              document.getElementById('thelistening').innerHTML = 'Click and hold to speak'
+            });
+
+            document.getElementById('start-btn').addEventListener('mousedown', () => {
+              recognition.start();
+              document.getElementById('thelistening').innerHTML = 'listening'
+            });
+
+            document.getElementById('start-btn').addEventListener('mouseup', () => {
+              recognition.stop();
+              setTimeout(run, 1000)
+              document.getElementById('thelistening').innerHTML = 'Click and hold to speak'
+            });
+
+            recognition.onresult = (event) => {
+              let interimTranscript = '';
+              let finalTranscript = '';
+
+              for (let i = 0; i < event.results.length; i++) {
+                const transcript = event.results[i][0].transcript;
+                if (event.results[i].isFinal) {
+                  finalTranscript += transcript;
+                } else {
+                  interimTranscript += transcript;
+                }
+              }
+              console.log(finalTranscript)
+            };
+
+            recognition.onerror = (event) => {
+              console.error('Speech recognition error detected: ' + event.error);
+            };
+            recognition.onend = () => {
+              console.log('Speech recognition service disconnected');
+            };
+          }

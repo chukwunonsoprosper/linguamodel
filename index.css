@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@100..900&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: white;
+    padding: 0;
+    margin: 0;
+}
+
+.getstarted {
+    width: 100%;
+    padding: 15px 20px;
+    background-color: white;
+    border-bottom: 1px solid rgb(188, 185, 185);
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    z-index: 1000;
+}
+
+.getstarted .theheadingcontact {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.theheadingcontact .fside span {
+    font-family: Manrope;
+    font-weight: 500;
+    color: dodgerblue;
+}
+
+.themanbody {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.themanbody .linkside {
+    width: 30%;
+    border-right: 1px solid rgb(188, 185, 185);
+    height: 100%;
+    padding: 20px;
+    position: relative;
+}
+
+.linkside .thecontent {
+    margin-top: 80px;
+    width: 100%;
+    color: black;
+}
+
+.linkside .thecontent span {
+        font-family: Outfit;
+}
+
+.linkside .theoptions {
+    width: 100%;
+    padding: 0;
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+}
+
+.theoptions .chatwithtext {
+    position: relative;
+    margin: 0;
+    padding: 15px;
+    width: 90%;
+    background-color: rgba(30, 143, 255, 0.046);
+    margin-bottom: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.chatwithtext span {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.chatwithtext a {
+    text-decoration: none;
+    padding: 20px;
+    color: #141414;
+    font-family: Outfit;
+    padding-left: 40px;
+}
+
+.themanbody .displayside {
+    position: relative;
+    width: 70%;
+    height: 100%;
+    background-color: rgba(211, 211, 211, 0.112);
+}
+
+
+
+.displayside .inputbar {
+    position: fixed;
+    width: 70%;
+    bottom: 0;
+    display: flex;
+    justify-content: left;
+}
+
+.inputbar input {
+    width: 100%;
+    border: 1px solid rgb(188, 185, 185);
+    padding: 15px 20px;
+    border-left: none;
+    outline: none;
+}
+
+.inputbar span {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.thechat{
+    width: 100%;
+    margin-top: 90px;
+    padding: 10px;
+}
+
+.thechat .theuser, .model{
+    padding: 10px;
+    color: black;
+    width: 100%;
+}
+
+.model:last-child {
+    margin-bottom: 30px;
+}
+
+.thechat .theuser span, .model span{
+    display: block;
+    margin-bottom: 10px;
+}
+
+.thechat .theuser span:first-child, .model span:first-child{ 
+    color: dodgerblue;
+    font-family: Outfit;
+    background-color: #ece6e6;
+    width: 70px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.thechat .theuser span:last-child, .model span:last-child {
+    font-family: Manrope;
+    padding: 10px;
+}
+
+
+.thechatcontainer .themic {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.themic span {
+    font-size: 90px;
+    padding: 20px;
+    background-color: #ece6e6;
+    border-radius: 100px;
+    animation: pop 1s ease-in-out infinite;
+    cursor: pointer;
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(0.9);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(0.9);
+    }
+}
+
+.themm {
+    margin-top: 20px;
+    font-family: Outfit;
+}
