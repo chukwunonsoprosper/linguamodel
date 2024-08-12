@@ -24,7 +24,9 @@ async function run() {
 }
 
 
-  if (!('webkitSpeechRecognition' in window)) {
+
+
+ if (!('webkitSpeechRecognition' in window)) {
             alert('Your browser does not support the Web Speech API');
           } else {
 
@@ -68,7 +70,7 @@ async function run() {
                   interimTranscript += transcript;
                 }
               }
-              console.log(finalTranscript)
+              localStorage.setItem('speech', finalTranscript);
             };
 
             recognition.onerror = (event) => {
