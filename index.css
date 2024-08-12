@@ -2,6 +2,7 @@
 
 * {
     box-sizing: border-box;
+    -webkit-user-select: none;
 }
 
 body {
@@ -125,6 +126,7 @@ body {
     top: 50%;
     transform: translateY(-50%);
 }
+
 
 .thechat{
     width: 100%;
